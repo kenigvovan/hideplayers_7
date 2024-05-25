@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "hideplayers\CakeBuild\CakeBuild.csproj", "{8A962994-EC86-4920-AAE0-77051F67C26E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hideplayers", "hideplayers\hideplayers\hideplayers.csproj", "{3E561C8E-7332-4380-8763-2C105587F97E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A962994-EC86-4920-AAE0-77051F67C26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A962994-EC86-4920-AAE0-77051F67C26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A962994-EC86-4920-AAE0-77051F67C26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A962994-EC86-4920-AAE0-77051F67C26E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E561C8E-7332-4380-8763-2C105587F97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E561C8E-7332-4380-8763-2C105587F97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E561C8E-7332-4380-8763-2C105587F97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E561C8E-7332-4380-8763-2C105587F97E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17AE0C02-FCEA-47A5-959E-0C235684FD99}
+	EndGlobalSection
+EndGlobal

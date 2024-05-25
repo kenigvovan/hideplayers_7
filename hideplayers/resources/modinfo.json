@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "modid": "hideplayers",
+    "name": "hideplayers",
+    "side": "server",
+    "authors": [
+        "KenigVovan"
+    ],
+    "description": "Server doesn't send coords of every player on server to freshly joined player",
+    "version": "1.0.4",
+    "dependencies": {
+        "game": ""
+    }
+}
