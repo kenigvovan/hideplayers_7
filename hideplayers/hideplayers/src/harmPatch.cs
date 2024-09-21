@@ -25,6 +25,10 @@ namespace hideplayers.src
             {
                 return false;
             }
+            if(pe.Entities == null)
+            {
+                return true;
+            }
             typeof(Packet_Entities).GetField("EntitiesLength", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(pe, __instance.Clients.Count);
             
             int num = 0;
@@ -32,7 +36,7 @@ namespace hideplayers.src
             foreach (ConnectedClient value in __instance.Clients.Values)
             {
                 //var c2 = player.Entity.ServerPos.DistanceTo(value.Entityplayer.ServerPos);
-                if (value.Entityplayer != null && value.Entityplayer.ServerPos.DistanceTo(player.Entity.ServerPos) < 200)
+                if (value.Entityplayer != null && value.Entityplayer.ServerPos.DistanceTo(player.Entity.ServerPos) < hideplayers.config.DISTANCE_BETWEEN_PLAYERS_BROADCAST)
                 {
                     var c = player.Entity.ServerPos.DistanceTo(value.Entityplayer.ServerPos);
                     pca.Add(ServerPackets.GetEntityPacket(value.Entityplayer));
@@ -50,7 +54,7 @@ namespace hideplayers.src
         }
         public static bool Prefix_SendInitialPlayerDataForOthers(ServerMain __instance, IServerPlayer owningPlayer, IServerPlayer toPlayer)
         {
-            if(owningPlayer.Entity.ServerPos.DistanceTo(toPlayer.Entity.ServerPos) > 100)
+            if(owningPlayer.Entity.ServerPos.DistanceTo(toPlayer.Entity.ServerPos) > hideplayers.config.DISTANCE_BETWEEN_PLAYERS_BROADCAST)
             {
                 return false;
             }        
