@@ -10,6 +10,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
+using Vintagestory.Client.NoObf;
 using Vintagestory.Common;
 using Vintagestory.GameContent;
 
@@ -28,6 +29,12 @@ namespace hideplayers.src
             loadConfig(api);
             doPatches();
         }
+       /* public override void StartClientSide(ICoreClientAPI api)
+        {
+            base.StartClientSide(api);
+            harmonyInstance = new Harmony(harmonyID);
+            harmonyInstance.Patch(typeof(ClientSystemEntities).GetMethod("createOrUpdateEntityFromPacket", BindingFlags.Public | BindingFlags.Static), postfix: new HarmonyMethod(typeof(harmPatch).GetMethod("Postfix_createOrUpdateEntityFromPacket")));
+        }*/
         public static void doPatches()
         {
             harmonyInstance.Patch(typeof(Vintagestory.Server.ServerMain).GetMethod("SendPlayerEntities", BindingFlags.NonPublic | BindingFlags.Instance), prefix: new HarmonyMethod(typeof(harmPatch).GetMethod("Prefix_BroadcastPacket")));

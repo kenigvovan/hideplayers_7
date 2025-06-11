@@ -10,6 +10,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
+using Vintagestory.Client.NoObf;
 using Vintagestory.Server;
 
 namespace hideplayers.src
@@ -35,7 +36,6 @@ namespace hideplayers.src
             List<Packet_Entity> pca = new List<Packet_Entity>();//[__instance.Clients.Count];
             foreach (ConnectedClient value in __instance.Clients.Values)
             {
-                //var c2 = player.Entity.ServerPos.DistanceTo(value.Entityplayer.ServerPos);
                 if (value.Entityplayer != null && value.Entityplayer.ServerPos.DistanceTo(player.Entity.ServerPos) < hideplayers.config.DISTANCE_BETWEEN_PLAYERS_BROADCAST)
                 {
                     var c = player.Entity.ServerPos.DistanceTo(value.Entityplayer.ServerPos);
@@ -54,11 +54,19 @@ namespace hideplayers.src
         }
         public static bool Prefix_SendInitialPlayerDataForOthers(ServerMain __instance, IServerPlayer owningPlayer, IServerPlayer toPlayer)
         {
-            if(owningPlayer.Entity.ServerPos.DistanceTo(toPlayer.Entity.ServerPos) > hideplayers.config.DISTANCE_BETWEEN_PLAYERS_BROADCAST)
+            if (owningPlayer.Entity.ServerPos.DistanceTo(toPlayer.Entity.ServerPos) > hideplayers.config.DISTANCE_BETWEEN_PLAYERS_BROADCAST)
             {
                 return false;
             }        
             return true;
         }
+        /*public static void Postfix_createOrUpdateEntityFromPacket(ClientSystemEntities __instance, Packet_Entity entitypacket, ClientMain game, bool addToLoadQueue, Entity __result)
+        {
+            if(__result.Class.Equals("EnityPlayer"))
+            {
+                var f2 = 3;
+            }
+            var f = 3;
+        }*/
     }
 }
